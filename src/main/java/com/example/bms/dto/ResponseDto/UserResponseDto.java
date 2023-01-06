@@ -1,6 +1,6 @@
 package com.example.bms.dto.ResponseDto;
 
-import com.example.bms.dto.TicketDto;
+import com.example.bms.dto.EntryDto.TicketDto;
 import lombok.Builder;
 import lombok.Data;
 

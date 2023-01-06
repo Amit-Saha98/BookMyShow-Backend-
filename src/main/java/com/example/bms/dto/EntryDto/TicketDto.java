@@ -1,4 +1,4 @@
-package com.example.bms.dto;
+package com.example.bms.dto.EntryDto;
 
 import com.example.bms.dto.ResponseDto.ShowResponseDto;
 import com.example.bms.dto.ResponseDto.UserResponseDto;

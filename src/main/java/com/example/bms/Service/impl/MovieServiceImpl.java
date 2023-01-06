@@ -11,6 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @Slf4j
 public class MovieServiceImpl implements MovieService {
@@ -45,5 +48,15 @@ public class MovieServiceImpl implements MovieService {
     public MovieNameAndIdObject getNameAndId(int id) {
         MovieEntity movieEntity = movieRepository.findById(id).get();
         return MovieConverter.convertEntitytoObject(movieEntity);
+    }
+
+    @Override
+    public List<MovieResponseDto> getAllMovie() {
+        List<MovieEntity>movieEntities=movieRepository.findAll();
+        List<MovieResponseDto>movieResponseDtos=new ArrayList<>();
+        for(MovieEntity movieEntity:movieEntities){
+            movieResponseDtos.add(MovieConverter.convertEntityToDto(movieEntity));
+        }
+        return movieResponseDtos;
     }
 }

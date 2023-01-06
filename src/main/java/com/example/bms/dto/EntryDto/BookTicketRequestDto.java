@@ -1,4 +1,4 @@
-package com.example.bms.dto;
+package com.example.bms.dto.EntryDto;
 
 import com.example.bms.Enums.SeatType;
 import lombok.Data;

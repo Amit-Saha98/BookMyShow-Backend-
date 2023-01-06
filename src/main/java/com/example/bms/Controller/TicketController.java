@@ -1,7 +1,7 @@
 package com.example.bms.Controller;
 
 import com.example.bms.Service.impl.TicketServiceImpl;
-import com.example.bms.dto.BookTicketRequestDto;
+import com.example.bms.dto.EntryDto.BookTicketRequestDto;
 import com.example.bms.dto.ResponseDto.TicketResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

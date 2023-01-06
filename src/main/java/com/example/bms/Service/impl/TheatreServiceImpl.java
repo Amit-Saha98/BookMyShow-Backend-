@@ -80,4 +80,15 @@ public class TheatreServiceImpl implements TheatreService {
 
         return TheatreConverter.convertEntityToDto(theatreEntity);
     }
+
+    @Override
+    public List<TheatreResponseDto> getAllTheatres() {
+        List<TheatreEntity>theatreEntities=theatreRepository.findAll();
+
+        List<TheatreResponseDto>theatreResponseDtoList=new ArrayList<>();
+        for(TheatreEntity theatre:theatreEntities){
+            theatreResponseDtoList.add(TheatreConverter.convertEntityToDto(theatre));
+        }
+        return theatreResponseDtoList;
+    }
 }

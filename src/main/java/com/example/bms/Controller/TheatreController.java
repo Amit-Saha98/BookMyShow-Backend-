@@ -6,6 +6,8 @@ import com.example.bms.dto.ResponseDto.TheatreResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("theatre")
 public class TheatreController {
@@ -21,5 +23,11 @@ public class TheatreController {
     @GetMapping("/get/{id}")
     public TheatreResponseDto getTheatre(@PathVariable int id ){
         return theatreService.getTheatre(id);
+    }
+
+
+    @GetMapping()
+    public List<TheatreResponseDto> getAllTheatre(){
+        return theatreService.getAllTheatres();
     }
 }

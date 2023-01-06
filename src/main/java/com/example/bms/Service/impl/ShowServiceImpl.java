@@ -10,6 +10,7 @@ import com.example.bms.converter.ShowConverter;
 import com.example.bms.dto.EntryDto.ShowEntryDto;
 import com.example.bms.dto.ResponseDto.ShowResponseDto;
 import net.bytebuddy.agent.builder.AgentBuilder;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,6 +49,11 @@ public class ShowServiceImpl implements ShowService {
         showSeatsRepository.saveAll(showSeatsEntities);
 
         ShowResponseDto showResponseDto = ShowConverter.convertEntityToDto(showEntity,showEntryDto);
+
+        List<ShowEntity>showEntities=movieEntity.getShows();
+        showEntities.add(showEntity);
+        movieEntity.setShows(showEntities);
+        movieRepository.save(movieEntity);
         return showResponseDto;
 
     }
@@ -67,6 +73,23 @@ public class ShowServiceImpl implements ShowService {
 
         showEntity.setSeats(showSeatsEntities);
         return showSeatsEntities;
+    }
+
+    @Override
+    public ShowResponseDto getShow(int id) {
+        ShowEntity showEntity= showRepository.findById(id).get();
+        return ShowConverter.convertEntityToDto(showEntity);
+    }
+
+    @Override
+    public List<ShowResponseDto> getAllShow() {
+        List<ShowEntity>showEntities=showRepository.findAll();
+        List<ShowResponseDto>showResponseDtos=new ArrayList<>();
+
+        for(ShowEntity show:showEntities){
+            showResponseDtos.add(ShowConverter.convertEntityToDto(show));
+        }
+        return showResponseDtos;
     }
 }
 

@@ -16,6 +16,6 @@ public class MovieResponseDto {
     String name;
     LocalDate releaseDate;
 
-    List<ShowResponseDto> showDtoList;
+   // List<Integer> showId;
 }
 

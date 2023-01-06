@@ -10,7 +10,7 @@ import com.example.bms.Repository.UserRepository;
 import com.example.bms.Service.TicketService;
 import com.example.bms.converter.ShowConverter;
 import com.example.bms.converter.TicketConverter;
-import com.example.bms.dto.BookTicketRequestDto;
+import com.example.bms.dto.EntryDto.BookTicketRequestDto;
 import com.example.bms.dto.ResponseDto.TicketResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

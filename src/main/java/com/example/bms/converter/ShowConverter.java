@@ -14,8 +14,17 @@ public class ShowConverter {
 
     public static ShowResponseDto convertEntityToDto(ShowEntity showEntity, ShowEntryDto showEntryDto){
         return ShowResponseDto.builder().id(showEntity.getId()).showTime(showEntity.getShowTime())
-                .showDate(showEntity.getShowDate()).movieResponseDto(showEntryDto.getMovieResponseDto())
-                .theaterDto(showEntryDto.getTheaterResponseDto()).build();
+                .showDate(showEntity.getShowDate()).movieId(showEntryDto.getMovieResponseDto().getId())
+                .theatreId(showEntryDto.getTheaterResponseDto().getId()).theatreName(showEntryDto
+                        .getTheaterResponseDto().getName()).movieName(showEntryDto.getMovieResponseDto()
+                        .getName()).address(showEntryDto.getTheaterResponseDto().getAddress()).build();
+    }
+
+    public static ShowResponseDto convertEntityToDto(ShowEntity showEntity){
+        return ShowResponseDto.builder().id(showEntity.getId()).showTime(showEntity.getShowTime()).
+                showDate(showEntity.getShowDate()).movieId(showEntity.getMovie().getId()).
+                theatreId(showEntity.getTheatre().getId()).address(showEntity.getTheatre().getAddress()).
+                movieName(showEntity.getMovie().getName()).theatreName(showEntity.getTheatre().getName()).build();
     }
 
 }
